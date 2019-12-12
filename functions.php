@@ -9,60 +9,36 @@ class Functions {
         $tmp = array();
         if ($handle) {
             while (($line = fgets($handle)) !== false) {
-            $tmp = trim($line, "\n");
+                $tmp = trim($line, "\n");
 //            $array .= $line;
-            array_push($array, $line);
+                array_push($array, $line);
             }
 //            $array = "[" . $array . "]";
 //            echo print_r($array);
             fclose($handle);
-            
-            } else {
+        } else {
             echo "Error reading log";
-            } 
-          
-//            $someArray = json_decode($array, true);
-//            print_r($someArray);
-//            echo $someArray[0]["browser"];
-//        $jsonlog = "log.log";
-
-//        $json = file_get_contents($jsonlog);
-//        $json = str_replace('KHTML,', '', $json);
-//        $json = "(" . $json . ")";
-//        $json_data = json_decode(trim($json,'"'));
-//        echo $json;
-//        echo gettype($json_data);
-//        echo gettype($json);
-//        print_r(explode(",",$json));
-//        var_dump(json_decode($json, true));
-//        $json_exp = explode(",",$json);
-        $html1 = NULL;
-        $returnstr = NULL;
-//        echo gettype($log);
-//        echo gettype($json);
-//        echo " ";
-//        echo gettype($json_exp);
-//        echo sizeof($json_exp);
-//        echo $json_exp[0];
-     
-//        if(is_array($log)){
-//            echo "isArray";
-//        }
-//        echo sizeof($array);
+        }
+        $returnstr = "";
         foreach ($array as $jsons) {
-
+        $html_out = $html_piece;
             $jsons = json_decode($jsons);
+            
             foreach ($jsons as $key => $value) {
                 if ($key == 'date') {
-                    $html_piece = str_replace('---date---', $value, $html_piece);
+                    $html_out = str_replace('---date---', $value, $html_out);
 //                    echo $html1;
                 } elseif ($key == 'browser') {
-                    $html_piece = str_replace('---browser---', $value, $html_piece);
-                }else{
-                    $html_piece = str_replace('---ip---', $value, $html_piece);
+//                    $value = explode(" ", $value);
+//                    echo $value[0];
+//                    $html_out = str_replace('---browser---', $value[0]."->".$value[count($value)-1], $html_out);
+                    $html_out = str_replace('---browser---', $value, $html_out);
+                } else {
+                    $html_out = str_replace('---ip---', $value, $html_out);
                 }
+                $html_out .= $html_out;
             }
-                $returnstr .= $html_piece;
+            $returnstr .= $html_out;
         }
         return $returnstr;
     }
@@ -110,6 +86,10 @@ class Functions {
             echo "File busy. Please report to admin.";
         }
         fclose($log);
+    }
+
+    function generateFooter() {
+        return ("Copyright 2019 Monster Inc.");
     }
 
 }

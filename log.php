@@ -1,18 +1,18 @@
 <?php
+
 include "functions.php";
 
 $str = file_get_contents("log.html");
 $html_pieces = explode("<!--===xxx===-->", $str);
 
 $ch = new Functions();
-$html0 = str_replace('---curdate---', $ch->getDate(), $html_pieces[0]);
+$date = $ch->getDate();
+$html0 = str_replace('---curdate---', $date, $html_pieces[0]);
 echo $html0;
 
-//LOOP
-//$ch->getLog();
-
-$html1 = $ch->getLog($html_pieces[1]);
-echo $html1;
+$html_table = $ch->getLog($html_pieces[1]);
+echo $html_table;
 
 //END LOOP
-echo $html_pieces[2];
+$html_end = str_replace('---curdate---', $date, $html_pieces[2]);
+echo $html_end;
