@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" charset="utf-8">
+
+<channel>
+  <title>Daniel Andersson WPROG1</title>
+  <link>http://localhost/wprog1</link>
+  <description>För kursen WPROG1 HT 2019</description>
+  <category>Courses</category>
+  <item>
+    <title>Nu</title>
+    <link>http://localhost/wprog1/now.html</link>
+    <description>Daniel Andersson - Nu</description>
+  </item>
+  <item>
+    <title>Historia</title>
+    <link>http://localhost/wprog1/history.html</link>
+    <description>Daniel Andersson - Historia</description>
+  </item>
+</channel>
+
+</rss>

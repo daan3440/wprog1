@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html>
+<html lang="se">
+<!--
+All HTML-kod ska vara validerad HTML5, se W3C: Validate Your Markup» (varningar behöver inte åtgärdas)
+All HTML-kod ska finnas på en separat fil
+I HTML-koden får ingen annan kod finnas (ingen CSS-, JavaScript-, PHP-kod med flera)
+Ingen HTML-kod behöver kommenteras
+-->
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Daniel Andersson">
+	<meta name="description" content="Hemsida för kursen Webbutv. 1">
+	<meta name="generator" content="Sublime">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript skriven för kursenWPROG1 av Daniel Andersson">
+	<meta name="robots" content="noindex" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Daniel Andersson - Kontakt</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Rozha+One&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+ 
+	<header class="phead">
+	<section  class="ptitle">
+		<h1>Daniel Andersson</h1> 
+		<div class="subtitle">
+		 	Kontakt
+		 </div> 
+		</section>
+	<nav class="nav" id="topNav">
+		<ul>
+			<li><a href="home.php">hem</a></li>
+			<li><a href="history.php">historia</a></li>
+			<li><a href="now.php">nu</a></li>
+			<li><a href="future.php">framtid</a></li>
+			<li><a href="contact.php">kontakt</a></li>
+		<!-- 	<li class="icon"><a href="javascript:void(0);" onclick="showMenu()">Menu</a></li>
+ -->
+		</ul>
+	</nav>
+</header>
+
+<main class="main">
+<section class="content">
+	<header class="contenthead">
+	<h2>/Hem/Kontakt</h2>
+	</header>
+
+<article class="contentart">
+		<header class="arthead">
+			<h3>Kontakt</h3>
+		</header>
+	<form enctype="multipart/form-data" action="https://people.dsv.su.se/~pierre/i/05_ass/ip3/1/1.1/1.1.10/example.php" method="post" accept-charset="utf-8">
+		<fieldset>
+		<fieldset>
+			 <legend>Information:</legend>
+
+
+			<label for="fornamn">Förnamn:</label><br>
+  		<input type="text" id="fname" name="firstname" placeholder="Förnamn" autofocus required title="Ditt förnamn"><br>
+  		<label for="efternamn">Efternamn:</label><br>
+  		<input type="text" id="lname" name="lastname" placeholder="Efternamn" required title="Ditt efternamn"><br>
+  		<label for="email">Email:</label><br>
+  		<input type="email" name="email" placeholder="Email" required pattern="^(?=[A-Z0-9][A-Z0-9@._%+-]{5,253}+$)[A-Z0-9._%+-]{1,64}+@(?:(?=[A-Z0-9-]{1,63}+\.)[A-Z0-9]++(?:-[A-Z0-9]++)*+\.){1,8}+[A-Z]{2,63}+$" title="En giltig emailadress"><br>
+  		<label for="hemsida">Hemsida:</label><br>
+  		<input type="url" name="hemsida" placeholder="Din hemsida" title="URL till din hemsida"><br>
+  		</fieldset>
+  	<fieldset>
+  		<legend>Meddelande:</legend>
+  		<textarea name="meddelande" placeholder="Skriv ditt meddelande här!" title="Ditt meddelande"></textarea>
+  	</fieldset>
+<fieldset>
+	<legend>Val:</legend>
+	<label for="svaras">Önskar svar:</label>
+  		<input type="checkbox" name="svaras">
+	
+
+	<label for="null">Önskar kopia:</label>
+	<label for="kopia">Ja</label>
+	<input type="radio" name="kopia" value="kopia">
+	<label for="ejkopia">Nej</label>
+	<input type="radio" name="kopia" value="ejkopia">
+
+
+</fieldset>
+  		
+<fieldset>
+	<legend>Bilaga:</legend>
+		Välj fil:
+		<input type="file" name="file">
+		Område:
+		<select>
+  			<optgroup label="Konst">
+    			<option value="dans">Dans</option>
+    			<option value="scenkonst">Scenkonst</option>
+  			</optgroup>
+  			<optgroup label="Teknik">
+    			<option value="admin">Administration</option>
+    			<option value="utv">Utveckling</option>
+  			</optgroup>
+		</select>
+</fieldset>
+
+<label for="urgency">Hur akut är ärendet?</label>
+<input list="akut" id="urgency" name="urgency" />
+<datalist id="akut">
+    <option value="svara inom 1h">
+    <option value="svara inom 6h">
+    <option value="svara inom 24h">
+    <option value="svara inom 1v">
+    <option value="svara inom 1mån">
+    <option value="svara aldrig är du snäll!">
+</datalist>
+
+
+<input type="submit" name="submit" value="Skicka"><br>
+	</fieldset>
+	</form>
+	<footer class="artfoot">
+		<p>Kontakt</p>
+	</footer>
+	</article>
+	<footer class="contentfoot">
+	<div>WPROG1 HT19 © daan3440</div>
+	</footer>
+
+</section>
+
+
+<aside class="asidebar">
+<h3>Hitta mig här:</h3>
+<ul>
+	<li><a href="https://www.facebook.com/daniel.yi.andersson" title="Facebook"><img src="images/facebook.png" alt="facebook logo"></a></li>
+	<li><a href="https://www.linkedin.com/in/danielyiandersson/" title="LinkedIn"><img src="images/linkedin.png" alt="linkedin logo"></a></li>
+</ul>
+
+
+</aside>
+
+
+</main>
+
+<footer  class="pfoot">
+	<p>Kontakta mig!<br>
+		<a href="mailto:daan3440@student.su.se">daan3440@dsv.su.se</a>
+	</p>
+</footer>
+ 
+ </body>
+</html>
