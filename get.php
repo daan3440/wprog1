@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $request = $_REQUEST;
     $logArr = $request;
     $attach = NULL;
-    if (isset($_FILES['file'])){
+    
+    if (isset($_FILES['file']) && !empty($_FILES['file']['name'])){
         $check = getimagesize($_FILES['file']['tmp_name']);
         if($check !== false) {
               $attach = $_FILES["file"];
