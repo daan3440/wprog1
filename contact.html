@@ -53,34 +53,35 @@ Ingen HTML-kod behöver kommenteras
 		<header class="arthead">
 			<h3>Kontakt</h3>
 		</header>
-	<form enctype="multipart/form-data" action="https://people.dsv.su.se/~pierre/i/05_ass/ip3/1/1.1/1.1.10/example.php" method="post" accept-charset="utf-8">
+	<!--<form enctype="multipart/form-data" action="https://people.dsv.su.se/~pierre/i/05_ass/ip3/1/1.1/1.1.10/example.php" method="post" accept-charset="utf-8">-->
+	<form enctype="multipart/form-data" action="get.php" method="post" accept-charset="utf-8">
 		<fieldset>
 		<fieldset>
 			 <legend>Information:</legend>
 
 
 			<label for="fornamn">Förnamn:</label><br>
-  		<input type="text" id="fname" name="firstname" placeholder="Förnamn" autofocus required title="Ditt förnamn"><br>
+                        <input type="text" id="fname" name="firstname" placeholder="Förnamn" autofocus required title="Ditt förnamn" value="Förnamn"><br>
   		<label for="efternamn">Efternamn:</label><br>
-  		<input type="text" id="lname" name="lastname" placeholder="Efternamn" required title="Ditt efternamn"><br>
+  		<input type="text" id="lname" name="lastname" placeholder="Efternamn" required title="Ditt efternamn"  value="Enamn"><br>
   		<label for="email">Email:</label><br>
-  		<input type="email" name="email" placeholder="Email" required pattern="^(?=[A-Z0-9][A-Z0-9@._%+-]{5,253}+$)[A-Z0-9._%+-]{1,64}+@(?:(?=[A-Z0-9-]{1,63}+\.)[A-Z0-9]++(?:-[A-Z0-9]++)*+\.){1,8}+[A-Z]{2,63}+$" title="En giltig emailadress"><br>
+  		<input type="email" name="email" placeholder="Email" required pattern="^(?=[A-Z0-9][A-Z0-9@._%+-]{5,253}+$)[A-Z0-9._%+-]{1,64}+@(?:(?=[A-Z0-9-]{1,63}+\.)[A-Z0-9]++(?:-[A-Z0-9]++)*+\.){1,8}+[A-Z]{2,63}+$" title="En giltig emailadress" value="okboomer@fiskekorg.se"><br>
   		<label for="hemsida">Hemsida:</label><br>
-  		<input type="url" name="hemsida" placeholder="Din hemsida" title="URL till din hemsida"><br>
+  		<input type="url" name="hemsida" placeholder="Din hemsida" title="URL till din hemsida" value="http://127.0.0.1"><br>
   		</fieldset>
   	<fieldset>
   		<legend>Meddelande:</legend>
-  		<textarea name="meddelande" placeholder="Skriv ditt meddelande här!" title="Ditt meddelande"></textarea>
+  		<textarea name="meddelande" placeholder="Skriv ditt meddelande här!" title="Ditt meddelande"">Ok, tjena. Hej o hå!</textarea>
   	</fieldset>
 <fieldset>
 	<legend>Val:</legend>
 	<label for="svaras">Önskar svar:</label>
-  		<input type="checkbox" name="svaras">
+        <input type="checkbox" name="svaras" checked="true">
 	
 
 	<label for="null">Önskar kopia:</label>
 	<label for="kopia">Ja</label>
-	<input type="radio" name="kopia" value="kopia">
+        <input type="radio" name="kopia" value="kopia" checked="true">
 	<label for="ejkopia">Nej</label>
 	<input type="radio" name="kopia" value="ejkopia">
 
@@ -105,13 +106,13 @@ Ingen HTML-kod behöver kommenteras
 </fieldset>
 
 <label for="urgency">Hur akut är ärendet?</label>
-<input list="akut" id="urgency" name="urgency" />
+<input list="akut" id="urgency" name="urgency" value="svara inom 1h"/>
 <datalist id="akut">
     <option value="svara inom 1h">
     <option value="svara inom 6h">
     <option value="svara inom 24h">
     <option value="svara inom 1v">
-    <option value="svara inom 1mån">
+    <option value="svara inom 1mån" >
     <option value="svara aldrig är du snäll!">
 </datalist>
 
