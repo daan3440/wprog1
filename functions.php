@@ -2,7 +2,7 @@
 
 class Functions {
 
-    public function getLog($html_piece) { //TODO KOLLA Varför inte json fungerar.
+    public function getLog($html_piece) {
         $handle = fopen("log.log", "r");
         $array = array();
         if ($handle) {
