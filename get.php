@@ -1,33 +1,34 @@
 <?php
 header('Content-type: text/plain');
-
+$maxSize = 1500000;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//    echo "POST\n";
-//    [name] => zeppelin.gif
-//    [type] => image/gif
-//    [tmp_name] => /Applications/XAMPP/xamppfiles/temp/phpgU27gA
-//    [error] => 0
-//    [size] => 4944
 
     $request = $_REQUEST;
     $logArr = $request;
     $attach = NULL;
-    
-    if (isset($_FILES['file']) && !empty($_FILES['file']['name'])){
-        $check = getimagesize($_FILES['file']['tmp_name']);
-        if($check !== false) {
-              $attach = $_FILES["file"];
+    if (isset($_FILES['file']) && !empty($_FILES['file']['name'])) {
+        $disallow = array('text/x-php', 'text/html');
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime = finfo_file($finfo, $_FILES['file']['tmp_name']);
+        if (in_array($mime, $disallow)) {
+            echo "Kan inte bifoga filer av filtyp '" . $mime ."'.\n";
+        } else {
+            $checkSize = filesize($_FILES['file']['tmp_name']);
+            if ($checkSize !== false) {
+                $attach = $_FILES["file"];
                 array_push($logArr, $attach);
+            }
+            finfo_close($finfo);
         }
     }
     $size = count($request) + $attach['size'];
-    if ($size < 100000) {
+    if ($size < $maxSize) {
         $file_path = printArr($logArr);
         if($file_path != NULL)
             $logArr[0]['tmp_name'] = $file_path;
         messageLogger($logArr);
     } else {
-        echo "Too much info.";
+        echo "Meddelandet för stort. Max i storlek är " . $maxSize;
     }
 } else {
         printArr($_GET);
@@ -41,7 +42,6 @@ function printArr($arr) {
             $firstname = $arr['firstname'];
         }
         if (is_array($value)) {
-//                echo "printed ".$value;
                 $target_file = saveFile($value, $firstname);
             foreach ($value as $key => $value) {
                 if ($key == 'name') {
@@ -52,7 +52,6 @@ function printArr($arr) {
                     echo "$key = $value\n";
                 }
             }
-            //sätt nytt namn
         } else {
             echo "$key = $value\n";
         }
